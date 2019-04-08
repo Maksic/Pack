@@ -1,0 +1,19 @@
+{
+  "name": "pack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maksic/Pack.git"
+  },
+  "author": "Maksic.ml",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maksic/Pack/issues"
+  },
+  "homepage": "https://github.com/Maksic/Pack#readme"
+}
