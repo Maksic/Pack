@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/Maksic/Pack/issues"
   },
-  "homepage": "https://github.com/Maksic/Pack#readme"
+  "homepage": "https://github.com/Maksic/Pack#readme",
+  "dependencies": {
+    "bluebird": "^3.5.4",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "moment-range": "^4.0.2",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.2.13",
+    "yamljs": "^0.3.0"
+  }
 }
