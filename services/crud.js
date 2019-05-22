@@ -7,19 +7,21 @@ class CrudService {
             readChunk: {
                 limit: 10,
                 page: 1,
-                order: 'asc',
-                orderField: 'id'
+                order: 'desc',
+                orderField: 'updatedAt',
+                like: ''
             }
         };
     }
 
-    async readChunk(options) {
+    async readChunk(id, options) {
         options = Object.assign({}, this.defaults.readChunk, options);
 
         let limit = options.limit;
         let offset = (options.page - 1) * options.limit;
 
         return await this.repository.findAll({
+            where: { userId: id },
             limit: limit,
             offset: offset,
             order: [[options.orderField, options.order.toUpperCase()]],
@@ -34,7 +36,7 @@ class CrudService {
             throw this.errors.invalidId;
         }
 
-        const item = await this.repository.findById(id, { raw: true });
+        const item = await this.repository.findByPk(id, { raw: true });
 
         if (!item) {
             throw this.errors.notFound;
@@ -43,8 +45,8 @@ class CrudService {
         return item;
     }
 
-    async create(data) {
-        const item = await this.repository.create(data);
+    async create(id, data) {
+        const item = await this.repository.create(id, data);
 
         return item.get({ plain: true });
     }

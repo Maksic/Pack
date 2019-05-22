@@ -1,0 +1,630 @@
+html {
+  --main-second-color: #ddd;
+  --main-first-color: #fff;
+  --main-transparent-color: rgba(255,255,255,0.4);
+  --text-color-normal: #000;
+  --drop-down-color: #ccc;
+  --cover-color: #FAFAFA;
+  --heart-color: #f00;
+  --button-hover-color: #6755C1;
+}
+
+html[data-theme='dark'] {
+  --main-second-color: #6755C1;
+  --main-first-color: #2e3133;
+  --main-transparent-color: rgba(0,0,0,0.4);
+  --text-color-normal: #94a6b2;
+  --drop-down-color: #333;
+  --cover-color: #333;
+  --heart-color: #f00;
+  --button-hover-color: #81aabb;
+}
+
+html[data-theme='retro'] {
+  --main-second-color: #FD00E1;
+  --main-first-color: #2e3133;
+  --main-transparent-color: rgba(0,0,0,0.4);
+  --text-color-normal: #00FFD5;
+  --drop-down-color: #333;
+  --cover-color: #FAA75D;
+  --heart-color: #f00;
+  --button-hover-color: #00FFDD;
+}
+
+html.color-theme-in-transition,
+html.color-theme-in-transition *,
+html.color-theme-in-transition *:before,
+html.color-theme-in-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+body {
+	width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    color: var(--text-color-normal);
+	background-image: url(./images/background.png);
+	background-color: var(--main-first-color);
+	font-family: monospace, Helvetica;
+	display: block;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+th {
+	background-color: rgba(0,0,0,0.5);
+}
+
+td, tr {
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.articleTable {
+	padding: 5%;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.buttonPage {
+	margin-left: 20px;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.buttonTable {
+	margin-left: 20px;
+	margin-top: 5px;
+}
+
+.buttonHeaderTable {
+	margin-top: 15px;
+	float: right;
+}
+
+.articleHeaderTable{
+	float: left;
+	font-size: 45px;
+}
+
+.buttonBar {
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+/*=============================*/
+/*========ModalWiniow==========*/
+/*=============================*/
+
+.titleModal {
+	margin-top: 15px;
+	font-size: 35px;
+}
+
+.bodyModal {
+	min-height: 55%;
+	font-size: 20px;
+	padding: 10px;
+}
+
+.closeButtonModal {
+	float: right;
+	margin-right: 3%;
+	cursor: pointer;
+}
+
+.barInfoModal {
+	height: 10%;
+	display: flex;
+	text-align: center;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.createdModal {
+	margin-right: 20px;
+	margin-left: 8%;
+}
+
+.textUCModal {
+	color: blue;
+}
+
+/*=============================*/
+/*========ModalWiniow==========*/
+/*=============================*/
+
+.articlePostPage {
+	display: block;
+	margin: 80px 0 0 45px;
+	width: 50%;
+}
+
+.articleHeaderPage {
+	font-size: 45px;
+}
+
+.articleTitlePage {
+	font-size: 35px;
+	margin-top: 45px;
+}
+
+.articleTitleInput {
+	width: 20%;
+}
+
+.form-control {
+	width: 45%;
+}
+
+.buttonPage {
+	margin-left: 0px;
+	margin-right: 30px;
+	margin-top: 30px;
+}
+
+.articleErrorMessage {
+	margin-top: 5px;
+	color: red;
+}
+
+
+
+
+
+
+
+
+
+/*=============================*/
+/*==========StartHere==========*/
+/*=============================*/
+
+
+/*=============================*/
+/*===========Header============*/
+/*=============================*/
+
+.header {
+	width: 100%;
+	min-height: 55px;
+	background-color: var(--main-first-color); 
+	border-bottom: 1px double var(--main-second-color);
+	position: fixed;
+	top: 0px;
+	z-index: 100;
+	opacity:1;
+	transition: 0.3s;
+}
+
+.headerAny {
+	margin-top: -100px; 
+	opacity:1;
+	transition: 0.5s;
+}
+
+.logoWord {
+	font-size: 48px;
+	color: var(--button-hover-color);
+	margin: auto;
+	float: left;
+	margin-left: 6%;
+}
+
+@media screen and (max-width: 840px) {
+  .logoWord {   
+    display: none;
+  }
+}
+
+/*=============================*/
+/*===========Toolbar===========*/
+/*=============================*/
+
+.toolbar {
+	margin-left: 37%;
+	height: 55px;
+	font-size: 25px;
+	display: flex;
+	width: 570px;
+}
+
+.buttonUser {
+	mask-image: url(./images/toolbar/user.svg);
+	-webkit-mask-image: url(./images/toolbar/user.svg);
+    width: 35px;
+	height: 35px;
+}
+
+.buttonTimeBox {
+	mask-image: url(./images/toolbar/stopwatch.svg);
+	-webkit-mask-image: url(./images/toolbar/stopwatch.svg);
+    width: 35px;
+	height: 35px;
+}
+
+.buttonUser {
+	mask-image: url(./images/toolbar/user.svg);
+	-webkit-mask-image: url(./images/toolbar/user.svg);
+    width: 30px;
+	height: 35px;
+}
+
+.buttonNews {
+	mask-image: url(./images/toolbar/newspaper.svg);
+	-webkit-mask-image: url(./images/toolbar/newspaper.svg);
+    width: 35px;
+	height: 35px;
+}
+
+.buttonProfile {
+	mask-image: url(./images/toolbar/picture.svg);
+	-webkit-mask-image: url(./images/toolbar/picture.svg);
+    width: 30px;
+	height: 35px;
+}
+
+.buttonStoris {
+	mask-image: url(./images/toolbar/book.svg);
+	-webkit-mask-image: url(./images/toolbar/book.svg);
+    width: 37px;
+	height: 35px;
+}
+
+.buttonNotes {
+	mask-image: url(./images/toolbar/notepad.svg);
+	-webkit-mask-image: url(./images/toolbar/notepad.svg);
+    width: 37px;
+	height: 35px;
+}
+
+.buttonStatistics {
+	mask-image: url(./images/toolbar/statistics.svg);
+	-webkit-mask-image: url(./images/toolbar/statistics.svg);
+    width: 37px;
+	height: 30px;
+}
+
+.buttonSetting {
+	mask-image: url(./images/toolbar/setting.svg);
+	-webkit-mask-image: url(./images/toolbar/setting.svg);
+    width: 28px;
+	height: 32px;
+}
+
+.buttonLogout {
+	mask-image: url(./images/toolbar/logout.svg);
+	-webkit-mask-image: url(./images/toolbar/logout.svg);
+    width: 28px;
+	height: 32px;
+}
+
+.buttonProfiles {
+	margin-right: -20px;
+	margin-left: 20px;
+}
+
+.buttonUser, .buttonProfile, .buttonSetting, .buttonStoris, .buttonNotes, .buttonStatistics, .buttonLogout, .buttonNews, .buttonTimeBox  {
+	margin: 12px 0 0 15px; 
+	background-color: var(--main-second-color);
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+.activeButtonUser, .activeButtonTimeBox, .activeButtonNews, .activeButtonProfile, .activeButtonStoris, .activeButtonNotes, .activeButtonSetting, .activeButtonStatistics, .activeButtonLogout {
+	margin: 12px 0 0 15px; 
+	background-color: var(--button-hover-color);
+	mask-size: contain;
+	mask-repeat: no-repeat;
+	mask-position: center;
+	-webkit-mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+}
+
+.buttonLogout:hover, .buttonSetting:hover, .buttonProfile:hover, .buttonStatistics:hover, .buttonNews:hover, .buttonUser:hover, .buttonNotes:hover, .buttonTimeBox:hover, .buttonStoris:hover {
+	background-color: var(--button-hover-color);
+}
+
+@media screen and (max-width: 840px) {
+  .toolbar {
+	margin-left: 3%;
+  }
+}
+
+/*=============================*/
+/*===========Profile===========*/
+/*=============================*/
+
+.profileMain {
+	margin-top: 100px;
+	height: 200px;
+	width: 100%;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+	font-size: 24px;
+	margin-bottom: -120px;
+}
+
+/*=============================*/
+/*============Diary============*/
+/*=============================*/
+
+.pageMain {
+	width: 100%;
+    height: 100%;
+	display: flex;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.pageList {
+	margin-top: 73px;
+	width: 40%;
+	height: 91%;
+}
+
+.pageItem {
+	margin-top: 73px;
+	width: 60%;
+	height: 91%;
+}
+
+.pageItemMain {
+	height: 64px;
+	background-color: var(--main-transparent-color);
+	font-size: 24px;
+	display: flex;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.pageItemData {
+	margin-top: 15px;
+	width: 30%;
+}
+
+.pageItemTitle {
+	margin-top: 15px;
+	width: 70%;
+}
+
+.pageItemToolBar {
+	margin-left: 25%;
+	height: 50px;
+	margin-bottom: 5px;
+}
+
+.buttonDiaryItem {
+	float: left;
+	margin-top: 6px;
+	margin-left: 15px;
+}
+
+@media screen and (max-width: 1050px) {
+  .pageItemTitle {
+	display: none;
+  }
+
+  .pageItemData {
+  	width: 80%;
+  }
+}
+
+/*=============================*/
+/*=============Note============*/
+/*=============================*/
+
+.pageMain {
+	width: 100%;
+    height: 100%;
+	display: flex;
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.noteItemMain {
+	height: 27px;
+	display: flex;
+	cursor: pointer;
+}
+
+.noteMarkTitle {
+	width: 100%;
+	cursor: pointer;
+}
+
+.noteItemData {
+	width: 35%;
+}
+
+.noteItemTitle {
+	width: 65%;
+}
+
+.noteList {
+	margin-top: 73px;
+	width: 40%;
+	height: 91%;
+}
+
+.noteItemsCommon {
+	display: flex;
+	height: 100%;
+}
+
+.noteItemsMark {
+	background-color: rgba(0,0,0,0.2);
+	width: 40%;
+	display: block;
+}
+
+.noteItemsAll {
+	background-color: rgba(0,0,0,0.1);
+	width: 60%;
+	float: right;
+	display: block;
+}
+
+/*=============================*/
+/*============Timer============*/
+/*=============================*/
+
+.timeBoxMain {
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.timeBoxList {
+	background-color: rgba(0,0,0,0.1);
+	margin-top: 10%;
+	width: 50%;
+	border-radius: 10px;
+	padding-bottom: 20px;
+}
+
+.timeBoxItem {
+	display: flex;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.timerDate {
+	width: 30%;
+	margin-top: 20px;
+}
+
+.timerTitle {
+	width: 30%;
+	margin-top: 20px;
+}
+
+.timerContent {
+	width: 25%;
+}
+
+.timerPost {
+	margin-top: 20px;
+	width: 15%;
+}
+
+.timerItemToolBar {
+	margin-left: 35%;
+	height: 50px;
+	margin-bottom: 5px;
+}
+
+.buttonTimerItem {
+	margin-left: 5px;
+}
+
+/*=============================*/
+/*==========Statistics=========*/
+/*=============================*/
+
+.timerTitleStat {
+	width: 45%;
+	margin-top: 5px;
+}
+
+.timerDateStat {
+	width: 30%;
+	margin-top: 5px;
+}
+
+.timerPostStat {
+	margin-top: 5px;
+	width: 25%;
+}
+
+.buttonStatistcsItem {
+	margin-top: 10px;
+	margin-bottom: 1px;
+}
+
+.statisticGetter {
+	display: inline-flex;
+}
+
+.spanStatistcsItem {
+	margin-left: 10px;
+}
+
+/*=============================*/
+/*========Authorization========*/
+/*=============================*/
+
+.authMain {
+	text-align: -webkit-center;
+	text-align: -moz-center;
+	text-align: -ms-center;
+	text-align: -o-center;
+}
+
+.auth {
+    padding-top: 50px;
+    margin-top: 200px;
+    width: 400px;
+    border-radius: 30px;
+    background-color: rgba(255,255,255,0.4);
+    padding-bottom: 50px;
+}
+
+.authForm {
+	width: 80%;
+}
+
+.headerAuth {
+    font-size: 24px;
+}
+
+/*=============================*/
+/*=========PageNotFound========*/
+/*=============================*/
+
+.pageNotFound {
+	margin-top: 100px;
+}
+
+.pageNotFoundButton{
+	cursor: pointer;
+	background-color: var(--button-hover-color);
+	width: 120px;
+	height: 40px;
+	border-radius: 10px;
+	border: 0;
+  	outline: none;
+	color: white;
+	font-size: 20px;
+	position: relative;
+	top: 5px;
+}

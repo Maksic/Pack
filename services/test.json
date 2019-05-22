@@ -1,0 +1,106 @@
+CREATE SCHEMA `Pack` DEFAULT CHARACTER SET utf8 ;
+
+
+//register
+{
+	"email": "nolanross@mail.ru",
+    "password": "m1234567",
+    "firstname": "data.firstname",
+    "lastname": "data.lastname"
+}
+//login 
+{
+	"email": "nolanross@mail.ru",
+    "password": "m1234567"
+}
+//post
+{
+	"title": "data.title",
+    "content": "data.content",
+    "date": "2016-04-27",
+    "draft": true
+},
+//diary
+{
+	"title": "data.title",
+    "content": "data.content",
+    "date": "data.date",
+    "userId": 1
+}
+//mark
+
+
+
+
+
+
+
+
+
+
+const fetchGetById = () => {
+  return (dispatch) => {
+    dispatch(request());
+    fetch('http://localhost:8080/v1/articles/5cd7ca4f2465301cc57875d4', {
+      method: 'GET'
+    })
+      .then(res => res.json())
+      .then(
+        data => dispatch(requestSuccess(data)),
+        err => dispatch(requestError())
+      );
+  }
+};
+
+const fetchGetAll = (param) => {
+  return (dispatch) => {
+    dispatch(request());
+    fetch('http://localhost:3000/api/posts/', {
+      method: 'GET'
+    })
+      .then(res => res.json())
+      .then(
+        data => dispatch(requestSuccess(data)),
+        err => dispatch(requestError()),
+        //window.history.replaceState(null, null, "/?page=" + param)
+      );
+  }
+};
+
+const fetchPost = (body, title) => {
+  return (dispatch) => {
+    dispatch(request());
+    fetch('http://localhost:8080/v1/articles', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({body: body, title: title})
+      })
+      .then(res => res.json())
+      .then(
+        data => dispatch(requestSuccess(data)),
+        err => dispatch(requestError())
+      );
+  }
+};
+
+const fetchPut = (id, body, title) => {
+  return (dispatch) => {
+    dispatch(request());
+    fetch('http://localhost:8080/v1/articles/' + id, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({body: body, title: title})
+      })
+      .then(res => res.json())
+      .then(
+        data => dispatch(requestSuccess(data)),
+        err => dispatch(requestError())
+      );
+  }
+};

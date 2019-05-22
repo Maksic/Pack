@@ -7,7 +7,7 @@ module.exports = (Sequelize, sequelize) => {
         },
 
         title: Sequelize.STRING,
-        content: Sequelize.STRING,
+        content: Sequelize.TEXT,
         date: Sequelize.DATEONLY,
         rating: Sequelize.INTEGER,
 

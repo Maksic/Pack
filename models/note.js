@@ -2,14 +2,13 @@ module.exports = (Sequelize, sequelize) => {
 	return sequelize.define('note', {
 		id: {
 			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncremen: true
+            primaryKey: true,
+            autoIncrement: true
 		},
 
-		idUser: Sequelize.INTEGER,
-		nameNote: Sequelize.STRING,
-		timeCreate: Sequelize.STRING,
+		title: Sequelize.STRING,
+		date: Sequelize.STRING,
 		mark: Sequelize.STRING,
-		nextNote: Sequelize.STRING
+		content: Sequelize.TEXT
 	});
 };

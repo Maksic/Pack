@@ -6,7 +6,7 @@ class UsersController extends CrudController {
 
         this.grant = this.grant.bind(this);
         this.revoke = this.revoke.bind(this);
-
+        
         this.routes['/create'] = undefined;
         this.routes['/grant'] = [{ method: 'post', cb: this.grant }];
         this.routes['/revoke'] = [{ method: 'post', cb: this.revoke }];

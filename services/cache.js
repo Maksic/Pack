@@ -1,7 +1,20 @@
-// TODO: implement cache, in memory or external
+const LRU = require('lru-cache');
+
 class CacheService {
-    async set(req, data) {}
-    async get(req) {}
+	 constructor(){
+        this.cache = new LRU({
+            max: 5,
+            maxAge: 1000*30
+        })
+    }
+
+    async set(req, data) {
+        this.cache.set(`${req.method}${req.originalUrl}`, data);
+    }
+
+    async get(req) {
+        return this.cache.get(`${req.method}${req.originalUrl}`);
+    }
     async invalidate(req) {}
 }
 

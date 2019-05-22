@@ -2,11 +2,10 @@ module.exports = (Sequelize, sequelize) => {
 	return sequelize.define('mark', {
 		id: {
 			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncremen: true
+            primaryKey: true,
+            autoIncrement: true
 		},
 
-		idUser: Sequelize.INTEGER,
-		nameMark: Sequelize.STRING
+		title: Sequelize.STRING
 	});
 };

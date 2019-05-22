@@ -2,13 +2,12 @@ module.exports = (Sequelize, sequelize) => {
 	return sequelize.define('page', {
 		id: {
 			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncremen: true
+            primaryKey: true,
+            autoIncrement: true
 		},
 
-		idUser: Sequelize.INTEGER,
-		namePage: Sequelize.STRING,
-		timeCreate: Sequelize.STRING,
-		textPage: Sequelize.STRING
+		title: Sequelize.STRING,
+		date: Sequelize.STRING,
+		content: Sequelize.TEXT
 	});
 };

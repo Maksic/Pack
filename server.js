@@ -1,10 +1,15 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const errors = require('./helpers/errors');
 
 const PostsService = require('./services/posts');
+const DiarysService = require('./services/diary');
+const NotesService = require('./services/note');
+const MarksService = require('./services/mark');
+const TimeBoxsService = require('./services/timeBox');
 const UsersService = require('./services/users');
 const RolesService = require('./services/roles');
 const AuthenticationService = require('./services/authentication');
@@ -16,6 +21,10 @@ module.exports = (db, config) => {
 
     // Services
     const postsService = new PostsService(db.posts, errors);
+    const diarysService = new DiarysService(db.pages, errors);
+    const notesService = new NotesService(db.notes, errors);
+    const marksService = new MarksService(db.marks, errors);
+    const timeBoxsService = new TimeBoxsService(db.timeBoxs, errors);
     const usersService = new UsersService(db.users, db.roles, errors);
     const rolesService = new RolesService(db.roles, errors);
     const authenticationService = new AuthenticationService(db.users, db.roles, errors);
@@ -31,6 +40,10 @@ module.exports = (db, config) => {
 
     const apiController = require('./controllers/api')(
         postsService,
+        diarysService,
+        marksService,
+        notesService,
+        timeBoxsService,
         usersService,
         rolesService,
         authenticationService,
@@ -39,6 +52,7 @@ module.exports = (db, config) => {
     );
 
     // Mounting
+    app.use(cors());
     app.use(express.static('public'));
     app.use(cookieParser(config.cookie.key));
     app.use(bodyParser.json());

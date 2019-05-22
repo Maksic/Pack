@@ -2,13 +2,12 @@ module.exports = (Sequelize, sequelize) => {
 	return sequelize.define('timeBox', {
 		id: {
 			type: Sequelize.INTEGER,
-			primaryKey: true,
-			autoIncremen: true
+            primaryKey: true,
+            autoIncrement: true
 		},
 		
-		idUser: Sequelize.INTEGER,
-		nameTimeBox: Sequelize.STRING,
-		timeCreate: Sequelize.STRING,
-		textTime: Sequelize.STRING
+		title: Sequelize.STRING,
+		date: Sequelize.STRING,
+		content: Sequelize.STRING
 	});
 };

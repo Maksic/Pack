@@ -1,14 +1,22 @@
 const Promise = require('bluebird');
-
 const CrudService = require('./crud');
-
 const hash = require('../helpers/hash');
 
 class UsersService extends CrudService {
     constructor(usersRepository, rolesRepository, errors) {
         super(usersRepository, errors);
 
+        this.usersRepository = usersRepository;
         this.rolesRepository = rolesRepository;
+    }
+
+    async get(req) {
+        const role = await this.rolesRepository.findOne({
+            where: {
+                id: req
+            }
+        });
+        return role;
     }
 
     async update(data) {
@@ -23,8 +31,8 @@ class UsersService extends CrudService {
 
     async grant(userId, roleId) {
         const [ user, role ] = await Promise.all([
-            this.repository.findById(userId),
-            this.rolesRepository.findById(roleId),
+            this.repository.findByPk(userId),
+            this.rolesRepository.findByPk(roleId),
         ]);
 
         if (!user || !role) {
@@ -36,8 +44,8 @@ class UsersService extends CrudService {
 
     async revoke(userId, roleId) {
         const [ user, role ] = await Promise.all([
-            this.repository.findById(userId),
-            this.rolesRepository.findById(roleId),
+            this.repository.findByPk(userId),
+            this.rolesRepository.findByPk(roleId),
         ]);
 
         if (!user || !role) {

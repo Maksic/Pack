@@ -1,20 +1,20 @@
 const CrudService = require('./crud');
 
 class PostsService extends CrudService {
-    async create(data) {
+    async create(id, data) {
         let post = {
             title: data.title,
             content: data.content,
             date: data.date,
             draft: data.draft,
-            userId: data.userId,
+            userId: id,
             rating: 0
         };
 
         return super.create(post);
     }
 
-    async update(data) {
+    async update(id, data) {
         let post = {
             title: data.title,
             content: data.content,
@@ -22,11 +22,25 @@ class PostsService extends CrudService {
             draft: data.draft
         };
 
-        return super.update(data.id, post);
+        return super.update(id, post);
+    }
+
+    async readChunkUnivers(options) {
+        options = Object.assign({}, this.defaults.readChunk, options);
+        console.log(options);
+        let limit = options.limit;
+        let offset = (options.page - 1) * options.limit;
+
+        return await this.repository.findAll({
+            limit: limit,
+            offset: offset,
+            order: [[options.orderField, options.order.toUpperCase()]],
+            raw: true
+        });
     }
 
     async upvote(id) {
-        const post = await this.repository.findById(id);
+        const post = await this.repository.findByPk(id);
 
         if (!post) {
             throw this.errors.notFound;
@@ -36,7 +50,7 @@ class PostsService extends CrudService {
     }
 
     async downvote(id) {
-        const post = await this.repository.findById(id);
+        const post = await this.repository.findByPk(id);
 
         if (!post) {
             throw this.errors.notFound;

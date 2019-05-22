@@ -1,10 +1,13 @@
-// TODO: user hash algorithm e.g. bcrypt
+const bcrypt = require('bcryptjs');
+
 module.exports = {
     get: plain => {
-        return plain;
+        return bcrypt.hashSync(plain);
     },
 
     isValid: (plain, hash) => {
-        return plain === hash;
+    	console.log(bcrypt.hashSync(plain));
+    	console.log(hash);
+    	return bcrypt.compare(plain, hash)
     },
 };
