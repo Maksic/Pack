@@ -9,7 +9,7 @@ module.exports = (Sequelize, config) => {
         }
     };
 
-    const sequelize = new Sequelize(config.db.name, config.db.user, config.db.password, options);
+    const sequelize = new Sequelize(config.db.development.name, config.db.development.user, config.db.development.password, options);
 
     const User = require('../models/user')(Sequelize, sequelize);
     const Role = require('../models/role')(Sequelize, sequelize);

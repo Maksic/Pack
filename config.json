@@ -1,9 +1,39 @@
 {
   "db": {
-    "host": "127.0.0.1",
-    "name": "Pack",
-    "user": "root",
-    "password": "password"
+    "development": {
+            "name": "Pack",
+            "user": "root",
+            "password": "password",
+            "options": {
+                "dialect": "mysql",
+                "host": "127.0.0.1",
+                "define": {
+                    "timestamps": false,
+                    "paranoid": false,
+                    "freezeTableName": true
+                },
+                "logging": false
+            }
+        },
+        "production": {
+            "name": "d9gqppnsmu6opr",
+            "user": "omtjfyslnlxzqi",
+            "password": "297511aaba08f2b0ad33c4d8cca3673b257d5210dc1d880809ad71d4be5e5679",
+            "options": {
+                "host": "ec2-75-101-133-29.compute-1.amazonaws.com",
+                "port": 5432,
+                "dialect": "postgres",
+                "define": {
+                    "timestamps": false,
+                    "paranoid": false,
+                    "freezeTableName": true
+                },
+                "logging": false,
+                "dialectOptions": {
+                    "ssl": true
+                }
+            }
+        }
   },
   "cookie": {
     "key": "secret key",
